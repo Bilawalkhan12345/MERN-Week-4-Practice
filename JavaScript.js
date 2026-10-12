@@ -1,48 +1,75 @@
-// // let prices = [10, 20, 30, 40, 50];
+// // // Asynchronous JavaScript
 
-// // let updatedPrices = prices.map(function(value) {
-// //     return value * 2; // Increase each price by multiplying it by 2
-// // });
+// // // console.log("Step 1");
+// // // console.log("Step 2");
+// // // console.log("Step 3");
 
-// // console.log(updatedPrices); // Output: [20, 40, 60, 80, 100]
+// // console.log("Starting the process...");
 
-// // Notes for map 
-// // The map() method creates a new array with the results of calling a function for each element in the original array.
+// // setTimeout(() => {
+// //     console.log("data loaded");
+// // } , 5000);
 
+// // console.log("End of the process...");
 
-
-// // same code in arrow function syntax
-
-// let prices = [10, 20, 30, 40, 50];
-
-// let updatedPrices = prices.map((value) => {
-//     return value * 2; // Increase each price by multiplying it by 2
-// });
-
-// console.log(updatedPrices); // Output: [20, 40, 60, 80, 100]
+// // // in this code, the setTimeout function is used to simulate an asynchronous operation. The console.log("data loaded") statement will be executed after 5 seconds (5000 milliseconds), while the other console.log statements will be executed immediately.
 
 
 
-// filter method
+// // call back function
 
-let ages = [12, 17, 25, 30, 15, 18];
+// // function greet(name, callback)
+// // {
+// //     console.log("Hello " + name);
+// //     callback();
+// // }
 
-let adultts = ages.filter(function(age){
-    return age >= 18; // Filter out ages less than 18
-})
+// // const LoadData = () => {
+// //     console.log("Data loaded");
+// // }
 
-
-console.log(adultts); // Output: [25, 30, 18]
-console.log(ages); // Output: [12, 17, 25, 30, 15, 18] (original array remains unchanged)
-
+// // greet("Bilawal", LoadData);
 
 
 
-// reduce method
+// // what is callback function?
 
-let marks = [10, 30, 50];
+// // A callback function is a function that is passed as an argument to another function and is executed after some operation has been completed. It allows for asynchronous behavior in JavaScript, enabling functions to be executed in a non-blocking manner.
 
-let total = marks.reduce (function(sum , mark){
-    return sum + mark; // Calculate the total sum of marks
-} , 10); // Initial value of sum is set to 10
-console.log(total); // Output: 90
+
+
+
+
+// promises (pending , resolve , reject)
+
+function loginUser(username, password) {
+    if (username === "admin" && password === "password") {
+        console.log("Login successful");
+    } else {
+        console.log("Login failed");
+    }
+
+}
+
+loginUser("admin", "password");
+
+
+
+// same code in promise (resolve , reject)
+
+function loginUser(username, password) {
+    return new Promise((resolve, reject) => {
+        if (username === "admin" && password === "password") {
+            resolve("Login successful");
+        } else {
+            reject("Login failed");
+        }
+    });
+
+}
+
+loginUser("admin", "password").then((result) => {
+    console.log(result);
+}).catch((err) => {
+    console.error(err);
+});
