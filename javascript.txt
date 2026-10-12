@@ -89,3 +89,104 @@ showNumber(2 , 4 , 5 , 6 , 7); // Output: Numbers: [2, 4, 5, 6, 7]
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+// data structure arrays // IMPORTANT
+// arrays are the collection of data, they are used to store multiple values in a single variable
+
+let fruit = ["apple", "banana", "orange", "grape", "kiwi"];
+fruit.push("mango"); // adds "mango" to the end of the array
+fruit.unshift("strawberry"); // adds "strawberry" to the beginning of the array
+
+
+fruit.pop(); // removes the last element from the array
+fruit.shift(); // removes the first element from the array
+console.log(fruit); // ["apple", "banana", "orange", "grape", "kiwi", "mango"]
+
+
+// write notes for these all methods 
+// push() - adds one or more elements to the end of an array
+// unshift() - adds one or more elements to the beginning of an array
+// pop() - removes the last element from an array and returns that element
+// shift() - removes the first element from an array and returns that element
+
+
+
+
+
+
+/ let fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+
+ Function to display the fruits in the console
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+ }  
+
+
+// for each loop  use for only print and iterate the data.
+let fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+
+fruits.forEach(function(value) {
+    console.log(value);
+});
+
+
+
+
+
+
+
+// // let prices = [10, 20, 30, 40, 50];
+
+// // let updatedPrices = prices.map(function(value) {
+// //     return value * 2; // Increase each price by multiplying it by 2
+// // });
+
+// // console.log(updatedPrices); // Output: [20, 40, 60, 80, 100]
+
+// // Notes for map 
+// // The map() method creates a new array with the results of calling a function for each element in the original array.
+
+
+
+// // same code in arrow function syntax
+
+// let prices = [10, 20, 30, 40, 50];
+
+// let updatedPrices = prices.map((value) => {
+//     return value * 2; // Increase each price by multiplying it by 2
+// });
+
+// console.log(updatedPrices); // Output: [20, 40, 60, 80, 100]
+
+
+
+// filter method
+
+let ages = [12, 17, 25, 30, 15, 18];
+
+let adultts = ages.filter(function(age){
+    return age >= 18; // Filter out ages less than 18
+})
+
+
+console.log(adultts); // Output: [25, 30, 18]
+console.log(ages); // Output: [12, 17, 25, 30, 15, 18] (original array remains unchanged)
+
+
+
+
+// reduce method
+
+let marks = [10, 30, 50];
+
+let total = marks.reduce (function(sum , mark){
+    return sum + mark; // Calculate the total sum of marks
+} , 10); // Initial value of sum is set to 10
+console.log(total); // Output: 90
