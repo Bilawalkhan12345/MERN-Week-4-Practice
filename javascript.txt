@@ -335,3 +335,160 @@ console.log("Finish");
 
 // explanation of async and await function. 
 // in this example, the loadUsers function is an async function that calls the getUsers function, which returns a promise. The await keyword is used to wait for the promise to resolve before continuing with the execution of the code. This allows for asynchronous code to be written in a more synchronous manner, making it easier to read and understand.
+
+
+
+
+
+
+Objectives 
+   understand Fetch API
+   Send HTTP requests
+   Read JSON Responses
+   Handle errors
+
+
+Fetch API
+   Built-in JavaScript feature
+   used to communicate with servers
+   Returns a promises
+   support GET, POST, PUT, Delete
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Fetch API Example</h1>
+    <button id="fetchButton">Fetch Data</button>
+    <div id="output"></div>
+
+    <script>
+        const fetchButton = document.querySelector('#fetchButton');
+        const output = document.querySelector('#output');
+
+        fetchButton.addEventListener('click', () => {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    output.innerHTML = ` <ul>
+            ${data.map(user => `<li>${user.name} - ${user.website} - ${user.phone}</li>`).join('')}
+        </ul>`;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+// example of fetch API
+
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+
+
+
+
+
+
+
+
+Local storage
+
+Methods
+localStorage.setItem(key,value)
+localStorage.getItem(key)
+localStorage.removeItem(key)
+localStorage.clear()
+
+
+
+<!-- Example of save in local storage in JavaScript: (frontend or browser storage)
+
+Here is an example of how to save data in local storage using JavaScript: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Local Storage Example</h1>
+
+    <button onclick="saveData()">Save Name</button>
+
+
+    // Example of saving an object in local storage
+    
+    <script>
+        function saveData() {
+            // Get the name from the user
+            const name = localStorage.getItem("userName");
+
+            // Save the name in local storage
+            localStorage.setItem("userName", "Bilawal");
+
+            alert("Name saved in local storage!");
+        }
+    </script>
+
+
+// Example of saving an object in local storage
+
+        <script>
+            localStorage.removeItem("userName");
+            function saveData() {
+                localStorage.setItem("userName", "Bilawal");
+                alert("Name saved in local storage!");
+            }
+        </script>
+
+
+
+
+        // Example of saving an object in local storage
+
+      <script>
+        const user = {
+            name: "Bilawal",
+            age: 25,
+        }
+
+        localStorage.setItem("user", JSON.stringify(user));
+      </script>
+
+</body>
+</html>

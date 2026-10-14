@@ -1,3 +1,7 @@
+<!-- Example of save in local storage in JavaScript: (frontend or browser storage)
+
+Here is an example of how to save data in local storage using JavaScript: -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,35 +10,49 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="inputField" placeholder="Type something...">
-    <button id="submitButton">Add task</button>
-    <ul id="taskList"></ul>
+    <h1>Local Storage Example</h1>
+
+    <button onclick="saveData()">Save Name</button>
+
+
+    <!-- // Example of saving an object in local storage -->
 
     <script>
-        const list = document.querySelector('#taskList');
-        const inputField = document.querySelector('#inputField');
-        const submitButton = document.querySelector('#submitButton');
+        function saveData() {
+            // Get the name from the user
+            const name = localStorage.getItem("userName");
 
+            // Save the name in local storage
+            localStorage.setItem("userName", "Bilawal");
 
-        submitButton.addEventListener("click" , function(){
-            const li = document.createElement('li');
-            li.textContent = inputField.value;
-
-            list.append(li);
-            inputField.value = "";
-
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = "Delete";
-
-        li.append(deleteBtn);
-
-        deleteBtn.addEventListener("click", function(){
-            li.remove();
-
-        })
-
-        })
+            alert("Name saved in local storage!");
+        }
     </script>
+
+
+<!-- // Example of saving an object in local storage -->
+
+        <script>
+            localStorage.removeItem("userName");
+            function saveData() {
+                localStorage.setItem("userName", "Bilawal");
+                alert("Name saved in local storage!");
+            }
+        </script>
+
+
+
+
+        <!-- // Example of saving an object in local storage -->
+
+      <script>
+        const user = {
+            name: "Bilawal",
+            age: 25,
+        }
+
+        localStorage.setItem("user", JSON.stringify(user));
+      </script>
+
 </body>
 </html>

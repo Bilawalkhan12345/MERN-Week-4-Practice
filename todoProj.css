@@ -1,0 +1,263 @@
+/* ==========================
+   Reset Default Styling
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================
+   Body Styling
+========================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eaf2ff, #f4f3f2);
+    min-height: 100vh;
+    padding: 40px 15px;
+    color: #1b2733;
+}
+
+/* ==========================
+   Main To-Do Container
+========================== */
+
+.container {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 25px 18px;
+    background: linear-gradient(145deg, #ffffff, #f7f9fc);
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+
+    /* 3D Card Effect */
+    box-shadow:
+        8px 8px 20px rgba(10, 37, 64, 0.12),
+        -5px -5px 15px rgba(255, 255, 255, 0.9);
+
+}
+
+
+/* ==========================
+   Heading
+========================== */
+
+h1 {
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    color: #0a2540;
+    margin-bottom: 22px;
+}
+
+/* ==========================
+   Input Box
+========================== */
+
+.input-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Input Field */
+
+.input-box input {
+    flex: 1;
+    min-width: 0;
+    height: 42px;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #1b2733;
+    background-color: #ffffff;
+    border: 2px solid #d7e2f0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Placeholder */
+
+.input-box input::placeholder {
+    color: #8492a6;
+    font-size: 13px;
+}
+
+/* Input Focus */
+
+.input-box input:focus {
+    border-color: #0b5ed7;
+    box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.12);
+}
+
+/* ==========================
+   All Buttons
+========================== */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Add Task Button */
+
+.input-box button {
+    height: 42px;
+    padding: 0 13px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0b5ed7, #084298);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(11, 94, 215, 0.2);
+}
+
+.input-box button:hover {
+    background: linear-gradient(135deg, #084298, #06357a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(11, 94, 215, 0.25);
+}
+
+.input-box button:active {
+    transform: translateY(0);
+}
+
+/* ==========================
+   Task List
+========================== */
+
+#taskList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual Task Row */
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 48px;
+    padding: 10px;
+    background: #f0f5fc;
+    border: 1px solid #e0e9f5;
+    border-left: 4px solid #0b5ed7;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #1b2733;
+
+    box-shadow: 0 3px 7px rgba(10, 37, 64, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#taskList li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(10, 37, 64, 0.1);
+}
+
+/* Task Text */
+
+#taskList li span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+/* Buttons Container */
+
+#taskList li div {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* Done and Delete Buttons */
+
+#taskList li button {
+    padding: 7px 10px;
+    min-height: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* Done Button */
+
+#taskList li button:first-child {
+    color: #ffffff;
+    background: #198754;
+    border: 1px solid #198754;
+}
+
+#taskList li button:first-child:hover {
+    background: #146c43;
+    border-color: #146c43;
+    transform: translateY(-1px);
+}
+
+/* Delete Button */
+
+#taskList li button:last-child {
+    color: #ffffff;
+    background: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+#taskList li button:last-child:hover {
+    background: #bb2d3b;
+    border-color: #bb2d3b;
+    transform: translateY(-1px);
+}
+
+/* ==========================
+   Completed Task
+========================== */
+
+.completed span {
+    text-decoration: line-through;
+    color: #8492a6;
+}
+
+/* Completed Task Row */
+
+#taskList li.completed {
+    background: #edf8f1;
+    border-left-color: #198754;
+}
+
+/* ==========================
+   Responsive Design
+========================== */
+
+@media (max-width: 400px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    .container {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #taskList li {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    #taskList li button {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
